@@ -10,23 +10,32 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+        with:
+          submodules: false
       
       - name: Setup Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.11'
       
       - name: Install uFBT
         run: |
+          python -m pip install --upgrade pip
           pip install ufbt
+      
+      - name: Update uFBT SDK
+        run: |
           ufbt update --channel=release --index-url=https://up.unleashedflip.com/directory.json
       
-      - name: Build FAP
-        run: ufbt fap_dist
+      - name: Build Application
+        run: |
+          ufbt
       
       - name: Upload FAP
         uses: actions/upload-artifact@v4
         with:
           name: boxofmusic-fap
-          path: dist/*.fap
+          path: |
+            .ufbt/build/*.fap
+            dist/*.fap
