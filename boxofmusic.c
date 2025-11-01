@@ -316,7 +316,7 @@ int32_t boxofmusic_app(void* p) {
 
             DialogsFileBrowserOptions browser_options;
             dialog_file_browser_set_basic_options(
-                &browser_options, BOXOFMUSIC_APP_EXTENSION, &I_boxofmusic_10px);
+                &browser_options, BOXOFMUSIC_APP_EXTENSION, NULL);
             browser_options.hide_ext = false;
             browser_options.base_path = BOXOFMUSIC_APP_PATH_FOLDER;
 
