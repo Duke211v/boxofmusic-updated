@@ -4,6 +4,9 @@ on:
   push:
     branches: [ main ]
   workflow_dispatch:
+  schedule:
+    # Spustí sa každý týždeň v pondelok o 8:00
+    - cron: '0 8 * * 1'
 
 jobs:
   build:
@@ -24,7 +27,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install ufbt
       
-      - name: Update uFBT SDK
+      - name: Update uFBT SDK (vždy najnovší)
         run: |
           ufbt update --channel=release --index-url=https://up.unleashedflip.com/directory.json
       
@@ -35,7 +38,8 @@ jobs:
       - name: Upload FAP
         uses: actions/upload-artifact@v4
         with:
-          name: boxofmusic-fap
+          name: boxofmusic-fap-latest
           path: |
             .ufbt/build/*.fap
             dist/*.fap
+          retention-days: 90
