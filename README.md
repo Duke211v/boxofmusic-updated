@@ -7,7 +7,7 @@ Modified version of the Music Player for Flipper Zero, updated to work with late
 
 ## 📥 Download
 
-Go to [Actions](../../actions) and download the latest `boxofmusic-fap` artifact.
+Go to [Releases](../../releases) and download the latest `boxofmusic.fap`.
 
 ## 📱 Installation
 
@@ -17,15 +17,12 @@ Go to [Actions](../../actions) and download the latest `boxofmusic-fap` artifact
 
 ## 🔄 Updates
 
-This repository automatically builds against the latest Unleashed firmware API every week.
+A daily check compares the latest **official (stable)** Unleashed Firmware release against the
+last one this repo built against. When a new official version comes out, it automatically
+rebuilds the app and publishes a new GitHub Release with the updated `.fap`. If nothing changed,
+it does nothing (no unnecessary builds).
 
 ## 📝 Credits
 
 - Original app: [theboxofdust/flipperzero-boxofMusic](https://github.com/theboxofdust/flipperzero-boxofMusic)
 - Updated for API 87.0+ by me with help from Claude
-
-## ⚙️ Current API Version
-
-**API: 87.0** (Unleashed Firmware)
-
-Last updated: November 2025
